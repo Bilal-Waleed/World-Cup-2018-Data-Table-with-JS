@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/4b610ad0a1.js" crossorigin="anonymous"></script>
+    <title>World Cup 2018 Data Table</title>
+    <style> 
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #0c3237c5; 
+        color: #160b29d5; 
+      }
+
+      .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .main h1 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #08262e; 
+        text-align: center;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+      }
+
+      .groupDiv {
+        margin: 10px;
+        display: flex;
+        cursor: pointer;
+        gap: 20px;
+        padding: 15px;
+        border: 1px solid #27ae8e; 
+        border-radius: 8px;
+        background-color: #193a5b; 
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .groupDiv:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-parent {
+        position: fixed;
+        height: 100vh;
+        width: 100vw;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .modal {
+        width: 80%;
+        max-width: 500px;
+        background-color: #ecf0f1; 
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-head {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        justify-content: space-between;
+        width: 100%;
+        background-color: #12562f; 
+        color: rgba(255, 255, 255, 0.889);
+        border-bottom: 1px solid #ddd;
+      }
+
+      .modal-head h2 {
+        flex-grow: 1;
+        text-align: center;
+        margin: 0;
+      }
+
+      .modal-head button {
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .modal-head button:hover {
+        color: #e74c3c; 
+        transition: transform 0.2s ease-in-out;
+        transform: rotate(360deg);
+      }
+
+      .modal-body {
+        padding: 15px;
+        max-height: 60vh;
+        overflow-y: auto;
+      }
+
+      table {
+        margin-top: 20px;
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #094c25; 
+      }
+
+      table th {
+        background-color: #27ae60; 
+        color: rgba(75, 5, 5, 0.567);
+        font-weight:bold ;
+        padding: 10px;
+        text-align: center;
+        /* border: 1px solid #000000; */
+      }
+
+      table td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #063f1e; 
+      }
+
+      table td:hover {
+        background-color: rgba(24, 97, 54, 0.2); 
+      }
+
+      footer {
+        text-align: center;
+        padding: 10px 0;
+        font-size: 14px;
+        color: #020e16; 
+      }
+
+      @media (max-width: 768px) {
+        .main h1 {
+          font-size: 24px;
+        }
+
+        .groupDiv {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        table, th, td {
+          font-size: 14px;
+          padding: 6px;
+        }
+
+        .modal {
+          width: 90%;
+        }
+
+        .modal-body {
+          max-height: 50vh;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main h1 {
+          font-size: 20px;
+        }
+        .groupDiv {
+          padding: 10px;
+        }
+
+        table, th, td {
+          font-size: 12px;
+          padding: 4px;
+        }
+
+        .modal {
+          width: 95%;
+          max-width: 350px;
+        }
+
+        .modal-body {
+          max-height: 45vh;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="modal-parent">
+      <div class="modal">
+        <div class="modal-head">
+            <h2 id="modal-group-name"></h2>
+            <button onClick="closeModal()">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="main">
+      <h1>World Cup 2018 Groups:</h1>
+
+    </div>
+    <footer>&copy; 2024 Muhammad Bilal Waleed. All rights reserved.</footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
